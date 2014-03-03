@@ -19,6 +19,10 @@
 		1F43E37118C4D31D00BB001E /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1F43E35918C4D31D00BB001E /* UIKit.framework */; };
 		1F43E37918C4D31D00BB001E /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 1F43E37718C4D31D00BB001E /* InfoPlist.strings */; };
 		1F43E37B18C4D31D00BB001E /* TDDCounterTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 1F43E37A18C4D31D00BB001E /* TDDCounterTests.m */; };
+		1F43E38618C4ED9100BB001E /* JKCounterViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1F43E38518C4ED9100BB001E /* JKCounterViewController.m */; };
+		1F43E38818C4F13100BB001E /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1F43E38718C4F13100BB001E /* Main.storyboard */; };
+		1F43E3CB18C4F33A00BB001E /* JKCounterViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1F43E3CA18C4F33A00BB001E /* JKCounterViewController.xib */; };
+		7793D0B7679E4B6CA87CF5CF /* libPods-TDDCounterTests.a in Frameworks */ = {isa = PBXBuildFile; fileRef = CE5B58F82DBD4BBA84DAB3B8 /* libPods-TDDCounterTests.a */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -48,6 +52,12 @@
 		1F43E37618C4D31D00BB001E /* TDDCounterTests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "TDDCounterTests-Info.plist"; sourceTree = "<group>"; };
 		1F43E37818C4D31D00BB001E /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		1F43E37A18C4D31D00BB001E /* TDDCounterTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TDDCounterTests.m; sourceTree = "<group>"; };
+		1F43E38418C4ED9100BB001E /* JKCounterViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JKCounterViewController.h; sourceTree = "<group>"; };
+		1F43E38518C4ED9100BB001E /* JKCounterViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JKCounterViewController.m; sourceTree = "<group>"; };
+		1F43E38718C4F13100BB001E /* Main.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Main.storyboard; sourceTree = "<group>"; };
+		1F43E3CA18C4F33A00BB001E /* JKCounterViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = JKCounterViewController.xib; sourceTree = "<group>"; };
+		CE5B58F82DBD4BBA84DAB3B8 /* libPods-TDDCounterTests.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-TDDCounterTests.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		FDAC26DB445A4C43BF2DC4B0 /* Pods-TDDCounterTests.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TDDCounterTests.xcconfig"; path = "Pods/Pods-TDDCounterTests.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -68,6 +78,7 @@
 				1F43E36F18C4D31D00BB001E /* XCTest.framework in Frameworks */,
 				1F43E37118C4D31D00BB001E /* UIKit.framework in Frameworks */,
 				1F43E37018C4D31D00BB001E /* Foundation.framework in Frameworks */,
+				7793D0B7679E4B6CA87CF5CF /* libPods-TDDCounterTests.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -81,6 +92,7 @@
 				1F43E37418C4D31D00BB001E /* TDDCounterTests */,
 				1F43E35418C4D31D00BB001E /* Frameworks */,
 				1F43E35318C4D31D00BB001E /* Products */,
+				FDAC26DB445A4C43BF2DC4B0 /* Pods-TDDCounterTests.xcconfig */,
 			);
 			sourceTree = "<group>";
 		};
@@ -100,6 +112,7 @@
 				1F43E35718C4D31D00BB001E /* CoreGraphics.framework */,
 				1F43E35918C4D31D00BB001E /* UIKit.framework */,
 				1F43E36E18C4D31D00BB001E /* XCTest.framework */,
+				CE5B58F82DBD4BBA84DAB3B8 /* libPods-TDDCounterTests.a */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -111,6 +124,10 @@
 				1F43E36518C4D31D00BB001E /* JKAppDelegate.m */,
 				1F43E36718C4D31D00BB001E /* Images.xcassets */,
 				1F43E35C18C4D31D00BB001E /* Supporting Files */,
+				1F43E38418C4ED9100BB001E /* JKCounterViewController.h */,
+				1F43E38518C4ED9100BB001E /* JKCounterViewController.m */,
+				1F43E3CA18C4F33A00BB001E /* JKCounterViewController.xib */,
+				1F43E38718C4F13100BB001E /* Main.storyboard */,
 			);
 			path = TDDCounter;
 			sourceTree = "<group>";
@@ -168,9 +185,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 1F43E38118C4D31D00BB001E /* Build configuration list for PBXNativeTarget "TDDCounterTests" */;
 			buildPhases = (
+				BD706066EC7848AE8D29B5B9 /* Check Pods Manifest.lock */,
 				1F43E36918C4D31D00BB001E /* Sources */,
 				1F43E36A18C4D31D00BB001E /* Frameworks */,
 				1F43E36B18C4D31D00BB001E /* Resources */,
+				6FDB3D04B4F4465F8EC41D0F /* Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -220,6 +239,8 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				1F43E3CB18C4F33A00BB001E /* JKCounterViewController.xib in Resources */,
+				1F43E38818C4F13100BB001E /* Main.storyboard in Resources */,
 				1F43E36018C4D31D00BB001E /* InfoPlist.strings in Resources */,
 				1F43E36818C4D31D00BB001E /* Images.xcassets in Resources */,
 			);
@@ -235,6 +256,39 @@
 		};
 /* End PBXResourcesBuildPhase section */
 
+/* Begin PBXShellScriptBuildPhase section */
+		6FDB3D04B4F4465F8EC41D0F /* Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Pods-TDDCounterTests-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		BD706066EC7848AE8D29B5B9 /* Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
 /* Begin PBXSourcesBuildPhase section */
 		1F43E34E18C4D31D00BB001E /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
@@ -242,6 +296,7 @@
 			files = (
 				1F43E36218C4D31D00BB001E /* main.m in Sources */,
 				1F43E36618C4D31D00BB001E /* JKAppDelegate.m in Sources */,
+				1F43E38618C4ED9100BB001E /* JKCounterViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -383,6 +438,7 @@
 		};
 		1F43E38218C4D31D00BB001E /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = FDAC26DB445A4C43BF2DC4B0 /* Pods-TDDCounterTests.xcconfig */;
 			buildSettings = {
 				ARCHS = "$(ARCHS_STANDARD_INCLUDING_64_BIT)";
 				BUNDLE_LOADER = "$(BUILT_PRODUCTS_DIR)/TDDCounter.app/TDDCounter";
@@ -406,6 +462,7 @@
 		};
 		1F43E38318C4D31D00BB001E /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = FDAC26DB445A4C43BF2DC4B0 /* Pods-TDDCounterTests.xcconfig */;
 			buildSettings = {
 				ARCHS = "$(ARCHS_STANDARD_INCLUDING_64_BIT)";
 				BUNDLE_LOADER = "$(BUILT_PRODUCTS_DIR)/TDDCounter.app/TDDCounter";
@@ -442,6 +499,7 @@
 				1F43E38018C4D31D00BB001E /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		1F43E38118C4D31D00BB001E /* Build configuration list for PBXNativeTarget "TDDCounterTests" */ = {
 			isa = XCConfigurationList;
@@ -450,6 +508,7 @@
 				1F43E38318C4D31D00BB001E /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
