@@ -8,6 +8,7 @@
 
 #import <Kiwi/Kiwi.h>
 
+#import "Counter.h"
 #import "JKCounterViewController.h"
 
 SPEC_BEGIN(JKCounterViewControllerSpec)
@@ -15,9 +16,11 @@ SPEC_BEGIN(JKCounterViewControllerSpec)
 describe(@"JKCounterViewController", ^{
     
     __block JKCounterViewController *sut;
+    __block Counter *mockCounter;
     
     beforeEach(^{
-        sut = [[JKCounterViewController alloc] init];
+        mockCounter = [Counter mock];
+        sut = [[JKCounterViewController alloc] initWithCounter:mockCounter];
         [sut view];
     });
     
@@ -31,7 +34,14 @@ describe(@"JKCounterViewController", ^{
         });
         
         it(@"initial text should equal zero", ^{
-            [[sut.countLabel.text should] equal:@"0"];
+            // given
+            [[mockCounter should] receive:@selector(count) andReturn:theValue(42)];
+            
+            // when
+            [sut viewWillAppear:NO];
+            
+            // then
+            [[sut.countLabel.text should] equal:@"42"];
         });
     });
     
@@ -49,27 +59,6 @@ describe(@"JKCounterViewController", ^{
         });
     });
     
-    context(@"incrementCount once", ^{
-        it(@"should add one to count label", ^{
-            // when
-            [sut incrementCount:nil];
-            
-            // then
-            [[sut.countLabel.text should] equal:@"1"];
-        });
-    });
-    
-    context(@"incrementCount twice", ^{
-        it(@"should add two to count label", ^{
-            // when
-            [sut incrementCount:nil];
-            [sut incrementCount:nil];
-            
-            // then
-            [[sut.countLabel.text should] equal:@"2"];
-        });
-    });
-    
     context(@"minus button outlet", ^{
         it(@"should be connected", ^{
             [[sut.minusButton shouldNot] equal:nil];
@@ -84,25 +73,48 @@ describe(@"JKCounterViewController", ^{
         });
     });
     
-    context(@"decrementCount once", ^{
-        it(@"should subtract one to count label", ^{
+    context(@"modelChangeNotification", ^{
+        it(@"should update count label", ^{
+            // given
+            [[mockCounter should] receive:@selector(count) andReturn:theValue(2)];
+            
             // when
-            [sut decrementCount:nil];
+            [[NSNotificationCenter defaultCenter] postNotificationName:CounterModelChanged object:mockCounter];
             
             // then
-            [[sut.countLabel.text should] equal:@"-1"];
+            [[sut.countLabel.text should] equal:@"2"];
         });
     });
     
-    context(@"decrementCount twice", ^{
-        
-        it(@"should subtract two to count label", ^{
+    context(@"modelChangeNotification from different model", ^{
+        it(@"should not update count label", ^{
+            // given
+            Counter *differentCounter = [[Counter alloc] init];
+            differentCounter.count = 2;
+            
             // when
-            [sut decrementCount:nil];
-            [sut decrementCount:nil];
+            [[NSNotificationCenter defaultCenter] postNotificationName:CounterModelChanged object:differentCounter];
             
             // then
-            [[sut.countLabel.text should] equal:@"-2"];
+            [[sut.countLabel.text should] equal:@"0"];
+        });
+    });
+    
+    context(@"incrementCount", ^{
+        it(@"should ask counter to increment", ^{
+            [[mockCounter should] receive:@selector(increment)];
+            
+            // when
+            [sut incrementCount:nil];
+        });
+    });
+    
+    context(@"decrementCount", ^{
+        it(@"should ask counter to decrement", ^{
+            [[mockCounter should] receive:@selector(decrement)];
+            
+            // when
+            [sut decrementCount:nil];
         });
     });
     

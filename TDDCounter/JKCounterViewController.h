@@ -8,12 +8,15 @@
 
 #import <UIKit/UIKit.h>
 
+@class Counter;
+
 @interface JKCounterViewController : UIViewController
 
 @property (weak, nonatomic) IBOutlet UILabel *countLabel;
 @property (weak, nonatomic) IBOutlet UIButton *plusButton;
 @property (weak, nonatomic) IBOutlet UIButton *minusButton;
 
+- (instancetype)initWithCounter:(Counter *)counter;
 - (IBAction)incrementCount:(id)sender;
 - (IBAction)decrementCount:(id)sender;
 

@@ -8,6 +8,7 @@
 
 #import "JKAppDelegate.h"
 
+#import "Counter.h"
 #import "JKCounterViewController.h"
 
 @implementation JKAppDelegate
@@ -18,7 +19,8 @@
     // Override point for customization after application launch.
     self.window.backgroundColor = [UIColor whiteColor];
     
-    self.window.rootViewController = [[JKCounterViewController alloc] init];
+    Counter *counter = [[Counter alloc] init];
+    self.window.rootViewController = [[JKCounterViewController alloc] initWithCounter:counter];
     [self.window makeKeyAndVisible];
     return YES;
 }

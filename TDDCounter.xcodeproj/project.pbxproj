@@ -22,6 +22,8 @@
 		1F43E38618C4ED9100BB001E /* JKCounterViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1F43E38518C4ED9100BB001E /* JKCounterViewController.m */; };
 		1F43E38818C4F13100BB001E /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1F43E38718C4F13100BB001E /* Main.storyboard */; };
 		1F43E3CB18C4F33A00BB001E /* JKCounterViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1F43E3CA18C4F33A00BB001E /* JKCounterViewController.xib */; };
+		1F6F6C2E18C513B600A33E3C /* Counter.m in Sources */ = {isa = PBXBuildFile; fileRef = 1F6F6C2D18C513B600A33E3C /* Counter.m */; };
+		1F6F6C3218C519D700A33E3C /* CounterTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 1F6F6C3118C519D700A33E3C /* CounterTests.m */; };
 		7793D0B7679E4B6CA87CF5CF /* libPods-TDDCounterTests.a in Frameworks */ = {isa = PBXBuildFile; fileRef = CE5B58F82DBD4BBA84DAB3B8 /* libPods-TDDCounterTests.a */; };
 /* End PBXBuildFile section */
 
@@ -56,6 +58,9 @@
 		1F43E38518C4ED9100BB001E /* JKCounterViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JKCounterViewController.m; sourceTree = "<group>"; };
 		1F43E38718C4F13100BB001E /* Main.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Main.storyboard; sourceTree = "<group>"; };
 		1F43E3CA18C4F33A00BB001E /* JKCounterViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = JKCounterViewController.xib; sourceTree = "<group>"; };
+		1F6F6C2C18C513B600A33E3C /* Counter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Counter.h; sourceTree = "<group>"; };
+		1F6F6C2D18C513B600A33E3C /* Counter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Counter.m; sourceTree = "<group>"; };
+		1F6F6C3118C519D700A33E3C /* CounterTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CounterTests.m; sourceTree = "<group>"; };
 		CE5B58F82DBD4BBA84DAB3B8 /* libPods-TDDCounterTests.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-TDDCounterTests.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		FDAC26DB445A4C43BF2DC4B0 /* Pods-TDDCounterTests.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TDDCounterTests.xcconfig"; path = "Pods/Pods-TDDCounterTests.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -122,11 +127,13 @@
 			children = (
 				1F43E36418C4D31D00BB001E /* JKAppDelegate.h */,
 				1F43E36518C4D31D00BB001E /* JKAppDelegate.m */,
-				1F43E36718C4D31D00BB001E /* Images.xcassets */,
-				1F43E35C18C4D31D00BB001E /* Supporting Files */,
+				1F6F6C2C18C513B600A33E3C /* Counter.h */,
+				1F6F6C2D18C513B600A33E3C /* Counter.m */,
 				1F43E38418C4ED9100BB001E /* JKCounterViewController.h */,
 				1F43E38518C4ED9100BB001E /* JKCounterViewController.m */,
 				1F43E3CA18C4F33A00BB001E /* JKCounterViewController.xib */,
+				1F43E36718C4D31D00BB001E /* Images.xcassets */,
+				1F43E35C18C4D31D00BB001E /* Supporting Files */,
 				1F43E38718C4F13100BB001E /* Main.storyboard */,
 			);
 			path = TDDCounter;
@@ -147,6 +154,7 @@
 			isa = PBXGroup;
 			children = (
 				1F43E37A18C4D31D00BB001E /* TDDCounterTests.m */,
+				1F6F6C3118C519D700A33E3C /* CounterTests.m */,
 				1F43E37518C4D31D00BB001E /* Supporting Files */,
 			);
 			path = TDDCounterTests;
@@ -294,6 +302,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				1F6F6C2E18C513B600A33E3C /* Counter.m in Sources */,
 				1F43E36218C4D31D00BB001E /* main.m in Sources */,
 				1F43E36618C4D31D00BB001E /* JKAppDelegate.m in Sources */,
 				1F43E38618C4ED9100BB001E /* JKCounterViewController.m in Sources */,
@@ -304,6 +313,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				1F6F6C3218C519D700A33E3C /* CounterTests.m in Sources */,
 				1F43E37B18C4D31D00BB001E /* TDDCounterTests.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

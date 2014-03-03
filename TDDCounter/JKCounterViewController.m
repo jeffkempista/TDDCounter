@@ -8,29 +8,51 @@
 
 #import "JKCounterViewController.h"
 
+#import "Counter.h"
+
 @interface JKCounterViewController ()
 
-@property (nonatomic) NSInteger count;
+@property (strong, nonatomic) Counter *counter;
 
 @end
 
 @implementation JKCounterViewController
 
+- (instancetype)initWithCounter:(Counter *)counter
+{
+    self = [super init];
+    if (self) {
+        _counter = counter;
+        [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(modelChanged:) name:CounterModelChanged object:counter];
+    }
+    return self;
+}
+
+- (void)viewWillAppear:(BOOL)animated
+{
+    [super viewWillAppear:animated];
+    
+    [self modelChanged:nil];
+}
+
+- (void)dealloc
+{
+    [[NSNotificationCenter defaultCenter] removeObserver:self];
+}
+
 - (IBAction)incrementCount:(id)sender
 {
-    ++self.count;
-    [self updateCountLabel];
+    [self.counter increment];
 }
 
 - (IBAction)decrementCount:(id)sender
 {
-    --self.count;
-    [self updateCountLabel];
+    [self.counter decrement];
 }
 
-- (void)updateCountLabel
+- (void)modelChanged:(NSNotification *)notification
 {
-    self.countLabel.text = [NSString stringWithFormat:@"%d", self.count];
+    self.countLabel.text = [NSString stringWithFormat:@"%d", self.counter.count];
 }
 
 @end
