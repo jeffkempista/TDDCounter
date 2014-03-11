@@ -8,25 +8,16 @@
 
 #import "Counter.h"
 
-NSString * const CounterModelChanged = @"CounterModelChanged";
-
 @implementation Counter
 
 - (void)increment
 {
-    self.count += 1;
-    [self postModelChangedNotification];
+    ++self.count;
 }
 
 - (void)decrement
 {
-    self.count -= 1;
-    [self postModelChangedNotification];
-}
-
-- (void)postModelChangedNotification
-{
-    [[NSNotificationCenter defaultCenter] postNotificationName:CounterModelChanged object:self];
+    --self.count;
 }
 
 @end

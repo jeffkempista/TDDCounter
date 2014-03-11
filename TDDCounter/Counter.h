@@ -6,8 +6,6 @@
 //  Copyright (c) 2014 Jeff Kempista. All rights reserved.
 //
 
-extern NSString * const CounterModelChanged;
-
 @interface Counter : NSObject
 
 @property (assign, nonatomic) NSInteger count;

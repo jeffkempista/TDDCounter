@@ -23,36 +23,31 @@
     self = [super init];
     if (self) {
         _counter = counter;
-        [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(modelChanged:) name:CounterModelChanged object:counter];
     }
     return self;
 }
 
-- (void)viewWillAppear:(BOOL)animated
+- (void)viewDidLoad
 {
-    [super viewWillAppear:animated];
+    [super viewDidLoad];
     
-    [self modelChanged:nil];
-}
+    // Setup RAC Bindings
+    
+    RAC(self.countLabel, text) = [RACSignal combineLatest:@[RACObserve(self.counter, count)]
+                                                   reduce:^(NSNumber *number) {
+                                                       return [number stringValue];
+                                                   }];
 
-- (void)dealloc
-{
-    [[NSNotificationCenter defaultCenter] removeObserver:self];
-}
+    @weakify(self);
+    [[self.plusButton rac_signalForControlEvents:UIControlEventTouchUpInside] subscribeNext:^(UIButton *sender) {
+        @strongify(self);
+        [self.counter increment];
+    }];
 
-- (IBAction)incrementCount:(id)sender
-{
-    [self.counter increment];
-}
-
-- (IBAction)decrementCount:(id)sender
-{
-    [self.counter decrement];
-}
-
-- (void)modelChanged:(NSNotification *)notification
-{
-    self.countLabel.text = [NSString stringWithFormat:@"%d", self.counter.count];
+    [[self.minusButton rac_signalForControlEvents:UIControlEventTouchUpInside] subscribeNext:^(UIButton *sender) {
+        @strongify(self);
+        [self.counter decrement];
+    }];
 }
 
 @end

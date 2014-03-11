@@ -17,7 +17,5 @@
 @property (weak, nonatomic) IBOutlet UIButton *minusButton;
 
 - (instancetype)initWithCounter:(Counter *)counter;
-- (IBAction)incrementCount:(id)sender;
-- (IBAction)decrementCount:(id)sender;
 
 @end
